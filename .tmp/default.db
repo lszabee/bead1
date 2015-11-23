@@ -1,0 +1,140 @@
+{
+  "data": {
+    "book": [
+      {
+        "status": "reading",
+        "cim": "Hamlet",
+        "iro": "Shakespeare",
+        "description": "asdfasdfadsadfas",
+        "date": "2015-11-22T22:32:43.889Z",
+        "createdAt": "2015-11-22T22:32:43.890Z",
+        "updatedAt": "2015-11-22T22:32:43.890Z",
+        "id": 1
+      },
+      {
+        "status": "new",
+        "cim": "Harry Potter és a Titkok kamrája",
+        "iro": "J. K. Rowling",
+        "description": "Harry Potter and the Chamber of Secrets ",
+        "date": "2015-11-22T23:52:33.679Z",
+        "createdAt": "2015-11-22T23:52:33.681Z",
+        "updatedAt": "2015-11-22T23:52:33.681Z",
+        "id": 2
+      }
+    ],
+    "user": [
+      {
+        "surname": "Lukács",
+        "forename": "Szabolcs",
+        "felhasznalonev": "lszabee",
+        "password": "$2a$10$m.651seYa1o5DZqf7pTz2uJDJWU7GkbvB9XL8stV34wtpwiTtutSO",
+        "avatar": "",
+        "role": "riporter",
+        "createdAt": "2015-11-22T22:19:38.682Z",
+        "updatedAt": "2015-11-22T22:19:38.682Z",
+        "id": 1
+      },
+      {
+        "surname": "Teszt",
+        "forename": "Elés",
+        "felhasznalonev": "tesztel",
+        "password": "$2a$10$SZJ2ERj3GQh/TILD1TCTAeHX7rcHz.A5XtjhX2fTwwwDzjIUOs7/i",
+        "avatar": "",
+        "role": "riporter",
+        "createdAt": "2015-11-22T22:51:31.643Z",
+        "updatedAt": "2015-11-22T22:51:31.643Z",
+        "id": 2
+      }
+    ]
+  },
+  "schema": {
+    "book": {
+      "date": {
+        "type": "datetime"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "new",
+          "reading",
+          "ready",
+          "giving",
+          "pending"
+        ]
+      },
+      "cim": {
+        "type": "string"
+      },
+      "iro": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "felhasznalonev": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "surname": {
+        "type": "string"
+      },
+      "forename": {
+        "type": "string"
+      },
+      "avatar": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "riporter",
+          "operator"
+        ],
+        "defaultsTo": "riporter"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "book": {
+      "id": 2
+    },
+    "user": {
+      "id": 2
+    }
+  }
+}
